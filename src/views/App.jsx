@@ -1,28 +1,40 @@
 import { YTMiniature } from "../components/YTMiniature";
-import { apiCall } from "../utils/fetch.js";
+import { getVideoData,  } from "../utils/fetch.js";
 
 import { useEffect, useState } from "react";
 
+/*
+  TODO: Crear componente que le puedas pasar ids de videos para renderizarlos.
+*/
+
 export function App() {
+  const [ids , setIds] = useState("jNQXAC9IVRw,gBfsaEhI8ow"); //ID del primer video de YT
+  const [videoDataArray , setData] = useState([]);
+
+  useEffect(() => {
+    const fetchVideoData = async () => { 
+      let videoData = await getVideoData(ids);
+      setData(videoData);
+    }
+    fetchVideoData().catch(console.error);
+
+    
+  },[ids])
+
   return (
     <div className="app">
-      <YTMiniature
-        iid="jNQXAC9IVRw"
-        title="Me at the zoo"
-        channelName="jawed"
-        channelAt="jawed"
-        isVerify
-        visualizations={332216333}
-        publicationDate="2005-03-23T00:00:00"
-      />
-      <YTMiniature
-        iid="gBfsaEhI8ow"
-        title="Color Your Night -Full-"
-        channelName="Persona radio"
-        channelAt="Personaradio"
-        visualizations={749973}
-        publicationDate="2024-01-29T00:00:00"
-      />
+      {videoDataArray.map((video) => {
+        return (<YTMiniature 
+          key={video.id}
+          iid={video.id}
+          miniatureURL={video.snippet.thumbnails.high.url}
+          channelId={video.snippet.channelId}
+          title={video.snippet.title}
+          channelName={video.snippet.channelTitle}
+          visualizations={parseInt(video.statistics.viewCount)}
+          publicationDate={video.snippet.publishedAt}
+        />);
+      })}
     </div>
   );
 }
