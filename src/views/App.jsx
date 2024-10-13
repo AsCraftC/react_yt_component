@@ -1,4 +1,7 @@
 import { YTMiniature } from "../components/YTMiniature";
+import { apiCall } from "../utils/fetch.js";
+
+import { useEffect, useState } from "react";
 
 export function App() {
   return (
