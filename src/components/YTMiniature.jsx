@@ -28,38 +28,40 @@ export function YTMiniature({
   },[])
 
   return (
-    <a href={"https://www.youtube.com/watch?v=" + iid}>
-      <article className="miniature">
+    <article className="miniature">
+      <a href={"https://www.youtube.com/watch?v=" + iid}>
         <img
           className="miniature__image"
           src={miniatureURL}
           alt="Miniatura del video"
         />
-        <section className="videoDescription">
+      </a>
+      <section className="videoDescription">
+        <a href={"youtube.com/channel/" + channelId}>
           <picture className="videoDescription__channelLogo">
             <img
               src={channelPictureURL}
               alt="Imagen del canal"
             />
           </picture>
-          <div className="videoDescription__label">
-            <h3 className="videoDescription__title"> {title} </h3>
-            <div className="videoDescription__channelName">
-              <a className="videoDescription__href" href={"youtube.com/channel/" + channelId}>{channelName}</a> 
-              {/* {isVerify && <picture className="videoDescription__verify"><img src={verifyIcon} alt="Verificado" /></picture>} */}
-            </div>
-            <p className="videoDescription__statistics">
-              {visualizationsFormatted(visualizations)}
-              <span>
-                {msToTime(publicationDate)}
-              </span>
-            </p>
+        </a>
+        <div className="videoDescription__label">
+          <h3 className="videoDescription__title"> <a href={"https://www.youtube.com/watch?v=" + iid}>{title}</a> </h3>
+          <div className="videoDescription__channelName">
+            <a className="videoDescription__href" href={"youtube.com/channel/" + channelId}>{channelName}</a> 
+            {/* {isVerify && <picture className="videoDescription__verify"><img src={verifyIcon} alt="Verificado" /></picture>} */}
           </div>
-          <button className="videoDescription__optionButton">
-            <img src={menuIcon} alt="Menu logo" />
-          </button>
-        </section>
-      </article>
-    </a>
+          <p className="videoDescription__statistics">
+            {visualizationsFormatted(visualizations)}
+            <span>
+              {msToTime(publicationDate)}
+            </span>
+          </p>
+        </div>
+        <button className="videoDescription__optionButton">
+          <img src={menuIcon} alt="Menu logo" />
+        </button>
+      </section>
+    </article>
   );
 }

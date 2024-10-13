@@ -20,10 +20,9 @@
 .videoDescription{
     display: flex;
     gap: 10px;
-
+    
     &__channelLogo{
-        border-radius: 100%;
-        width: 7%;
+        width: 36px;
         aspect-ratio: 1 / 1;
         img{
             border-radius: 50%;
