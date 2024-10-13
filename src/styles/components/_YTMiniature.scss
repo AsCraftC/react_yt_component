@@ -19,7 +19,8 @@
 }
 .videoDescription{
     display: flex;
-    gap: 7px;
+    gap: 10px;
+
     &__channelLogo{
         border-radius: 100%;
         width: 7%;
@@ -31,7 +32,7 @@
     &__label{
         display: flex;
         flex-direction: column;
-        margin: auto 1%;
+        flex-grow: 1;
         
     }
     &__title{
@@ -64,5 +65,9 @@
     &__statistics span::before{
         content: "•";
         margin: 0 4px;
+    }
+    &__optionButton{
+        filter: brightness(0) saturate(100%) invert(76%) sepia(15%) saturate(14%) hue-rotate(350deg) brightness(85%) contrast(81%);
+        align-self: flex-start;
     }
 }
