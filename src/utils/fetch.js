@@ -1,4 +1,4 @@
-import { ytKey } from "../keys/keys";
+const ytKey = import.meta.env.VITE_AUTH_TOKEN;
 
 /**
  * Función que hace el llamado a la api, intencionadamente no lo hice con axios para forzarme a aprender las bases.
