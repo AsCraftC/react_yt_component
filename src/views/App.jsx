@@ -5,7 +5,7 @@ import { getVideoData } from "../utils/fetch.js";
 import { useEffect, useState } from "react";
 
 export function App() {
-  const [ids , setIds] = useState("jNQXAC9IVRw,gBfsaEhI8ow"); //ID del primer video de YT
+  const [ids , setIds] = useState("jNQXAC9IVRw"); //ID del primer video de YT
   const [videoDataArray , setData] = useState([]);
 
   useEffect(() => {
