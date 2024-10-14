@@ -1,5 +1,4 @@
 import menuIcon from "../assets/menuIcon.svg";
-// import verifyIcon from "../assets/verifyIcon.svg";
 import { msToTime, visualizationsFormatted } from "../utils/utils.js"
 import { getChannelProfilePicture } from "../utils/fetch.js"
 
@@ -49,7 +48,6 @@ export function YTMiniature({
           <h3 className="videoDescription__title"> <a href={"https://www.youtube.com/watch?v=" + iid}>{title}</a> </h3>
           <div className="videoDescription__channelName">
             <a className="videoDescription__href" href={"youtube.com/channel/" + channelId}>{channelName}</a> 
-            {/* {isVerify && <picture className="videoDescription__verify"><img src={verifyIcon} alt="Verificado" /></picture>} */}
           </div>
           <p className="videoDescription__statistics">
             {visualizationsFormatted(visualizations)}
