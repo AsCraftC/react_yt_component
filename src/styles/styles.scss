@@ -1,2 +1,8 @@
 @use './base';
-@use './components/YTMiniature'
+// Layout
+
+// Views
+@use './views/app';
+// Components
+@use './components/FormIDs';
+@use './components/YTMiniature';

@@ -1,5 +1,6 @@
-import { YTMiniature } from "../components/YTMiniature";
-import { getVideoData,  } from "../utils/fetch.js";
+import { YTMiniature } from "../components/YTMiniature.jsx";
+import { FormIDs } from "../components/FormIDs.jsx"
+import { getVideoData } from "../utils/fetch.js";
 
 import { useEffect, useState } from "react";
 
@@ -17,24 +18,26 @@ export function App() {
       setData(videoData);
     }
     fetchVideoData().catch(console.error);
-
-    
   },[ids])
 
   return (
-    <div className="app">
-      {videoDataArray.map((video) => {
-        return (<YTMiniature 
-          key={video.id}
-          iid={video.id}
-          miniatureURL={video.snippet.thumbnails.high.url}
-          channelId={video.snippet.channelId}
-          title={video.snippet.title}
-          channelName={video.snippet.channelTitle}
-          visualizations={parseInt(video.statistics.viewCount)}
-          publicationDate={video.snippet.publishedAt}
-        />);
-      })}
-    </div>
+    <>
+      <FormIDs setter={setIds} />
+
+      <div className="videoList">
+        {videoDataArray.map((video) => {
+          return (<YTMiniature 
+            key={video.id}
+            iid={video.id}
+            miniatureURL={video.snippet.thumbnails.high.url}
+            channelId={video.snippet.channelId}
+            title={video.snippet.title}
+            channelName={video.snippet.channelTitle}
+            visualizations={parseInt(video.statistics.viewCount)}
+            publicationDate={video.snippet.publishedAt}
+          />);
+        })}
+      </div> 
+    </>
   );
 }
