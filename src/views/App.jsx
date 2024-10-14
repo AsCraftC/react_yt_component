@@ -4,10 +4,6 @@ import { getVideoData } from "../utils/fetch.js";
 
 import { useEffect, useState } from "react";
 
-/*
-  TODO: Crear componente que le puedas pasar ids de videos para renderizarlos.
-*/
-
 export function App() {
   const [ids , setIds] = useState("jNQXAC9IVRw,gBfsaEhI8ow"); //ID del primer video de YT
   const [videoDataArray , setData] = useState([]);
